@@ -1,0 +1,83 @@
+Current configuration : 889 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R1
+!
+!
+!
+enable secret Bob
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username Prod password Llama
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name valorant.esport.eu
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 100.0.0.1 255.255.255.240
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:ABCD:1::1/64
+!
+interface GigabitEthernet0/0/1
+ ip address 100.0.0.17 255.255.255.240
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:ABCD:2::1/64
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password MijnConsole
+ login
+!
+line aux 0
+!
+line vty 0 4
+ exec-timeout 5 30
+ password Home
+ login local
+ transport input ssh
+!
+!
+!
+end
